@@ -5,29 +5,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>중간 과제</title>
+    <title>Knusic - 중간 대체 과제</title>
+
+    <!-- Nanum Gothic -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+
+    <!-- Comfortaa -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Sunflower -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap" rel="stylesheet">
+
+    <!-- favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+
     <script src="jquery-3.6.0.min.js"></script>
     <style>
+        @font-face {
+            font-family: 'cookie';
+            src: url(CookieRun\ Regular.ttf);
+        }
+
+        @font-face {
+            font-family: 'DX';
+            src: url(DXPnM-KSCpc-EUC-H.ttf);
+        }
+
         body {
             margin: 0%;
+            background-color:#606060;
         }
 
 
 
         .box {
-            left: 15%;
+            left: 24%;
             margin-top: 3%;
-            margin-right: 5%;
+            margin-right: 4vw;
             position: relative;
             display: inline-block;
-            width: 20%;
+            /* display: flex;
+            flex-direction: column;
+            justify-content: center; */
+
+            width: 15vw;
             /* height: 20%; */
             border-radius: 20px;
             /* background-color: aqua; */
-            filter: drop-shadow(0 0 20px gray);
-            z-index: 0;
+            filter: drop-shadow(0 0 10px #333333);
+            z-index: 1;
         }
 
         .box:hover>.title {
@@ -37,26 +66,31 @@
 
         .back {
             width: 100%;
-            height: 100%;
-            /* overflow: hidden; */
+            height: 100vh;
         }
 
 
         .blur-bg {
+            height: 300vh;
             transition: all 0.05s;
             -webkit-backdrop-filter: blur(50px);
             backdrop-filter: blur(50px);
-            overflow: hidden;
             z-index: 2;
+            /* overflow: hidden; */
         }
+
+
+
 
         .wrapper {
             width: 100vw;
             height: 100vh;
+            /* background-color: #606060; */
             /* background: url('https://images.unsplash.com/photo-1516919549054-e08258825f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')no-repeat center center; */
             background-size: cover;
             /* overflow-y: none; */
             overflow-x: hidden;
+            /* z-index: -999; */
         }
 
         .none {
@@ -65,14 +99,33 @@
             filter: blur(50px);
         }
 
-        .top {
-            width: 100%;
-            background-color: greenyellow;
-            margin: 0px;
+        .logo {
+            /* margin: 1%; */
+            margin-right: 0.5vw;
+            width: 5vw;
+            /* height: 6%; */
+            display: inline;
+            filter: drop-shadow(0 0 3px #EAA6AD);
         }
 
         h1 {
-            margin: 0px;
+            display: inline;
+            margin-top: 0;
+            /* margin-left: 35%; */
+            text-align: center;
+
+            margin-bottom: 0;
+            position: relative;
+            /* left: 4%; */
+            font-size: 5vw;
+            /* background: #FFF6E6; */
+            color: #F77683;
+            font-family: cookie;
+            filter: drop-shadow(0 0 3px #EAA6AD);
+            /* font-family: 'Comfortaa'; */
+            /* text-shadow: -.08em .08em #E7DCD7; */
+            /* text-shadow: -.030em .030em #FFF6E6; */
+            /* , -.08em .08em #E7DCD7; */
         }
 
         .cover_img {
@@ -82,122 +135,371 @@
         }
 
         .title {
+            margin-top: -0.4vw;
             position: relative;
             text-align: center;
-            font-size: 18px;
+            font-size: 1.4vw;
             overflow: hidden;
-            font-family: 'Nanum Gothic', sans-serif;
+            /* font-family: 'Nanum Gothic', sans-serif; */
+            font-family: 'DX';
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
         .bigger_title {
-            font-size: 34px;
+            font-size: 3vw;
             transition: all 0.8s;
             overflow: visible;
             /* transform: translate(-50%, -50%) */
         }
 
-        .topic1 {
+        .topic {
             position: relative;
             margin-top: 3%;
             /* top: 5%; */
-            margin-left: 14%;
-            margin-right: 14%;
+            margin-left: 18%;
+            margin-right: 18%;
             /* left: 14%; */
-            width: 72%;
+            width: 64%;
         }
 
         .topic2 {
             position: relative;
             /* top: 55%; */
             margin-top: 5%;
-            margin-left: 14%;
-            margin-right: 14%;
+            margin-left: 18%;
+            margin-right: 18%;
             /* left: 14%; */
-            width: 72%;
+            width: 64%;
         }
 
         .focus {
             color: black;
         }
+
+        .topic-title {
+            padding-left: 2vw;
+            margin-top: -1vw;
+            margin-bottom: 0;
+            font-size: 2.6vw;
+            font-family: 'DX';
+            font-weight: 600;
+        }
+
+        .topic_line {
+            margin-top: -0.7vw;
+            margin-bottom: -0.4vw;
+            
+        }
+
+        .top_line {
+            margin-top: 0;
+            margin-left: 10%;
+            margin-right: 10%;
+            border: 0;
+            height: 5px;
+            filter: opacity(0.5);
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), #FFA9B1, rgba(0, 0, 0, 0));
+            filter: drop-shadow(0 0 5px #EAA6AD);
+
+        }
+
+        .align {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .test {
+            display: inline-block;
+            position: absolute;
+            top: 0.2vw;
+            left: 32vw;
+            width: 40vw;
+            height: 29vw;
+            background-color: #FBFBFB;
+            border-radius: 20px;
+            /* filter: opacity(0.9); */
+            z-index: 0;
+            /* flex-direction: row; */
+        }
+
+        .content-title {
+            margin-left: 2vw;
+            margin-top: 2vw;
+            margin-bottom: 0;
+            font-family: 'DX';
+            font-size: 4vw;
+            font-weight: 600;
+        }
+
+        .content-singer {
+            margin-left: 4vw;
+            margin-top: -2vw;
+            margin-bottom: 1vw;
+            font-family: 'DX';
+            font-size: 3vw;
+
+        }
+
+        .content-detail {
+            margin-left: 3vw;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-family: 'DX';
+            font-size: 2vw;
+
+        }
+
+        .background {
+            position: absolute;
+            left: 10vw;
+            top: 0;
+            height: 100vh;
+            /* height: 100%; */
+            width: 80%;
+            background-color: #E5E5E5;
+            z-index: -2;
+            filter: drop-shadow(0 0 5px black);
+        }
+
+        .blank {
+            width: 100%;
+            height: 10vw;
+        }
+
+
+        footer {
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 1vw;
+            background-color: #333333;
+            color: #606060;
+            /* text-align: center; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 4vw;
+        }
+
+        footer>p {
+            margin-top: 0;
+            margin-bottom: 0.3vw;
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="background"></div>
     <div class="wrapper">
 
         <div class="back">
             <div class="top">
-                <h1>Melon</h1>
+                <a href="main.html" class="align" style="text-decoration:none">
+                    <img class="logo" src="logo.png">
+                    <h1>Knusic</h1>
+                </a>
+                <hr class="top_line">
             </div>
 
-            <div class="topic1">
-                Today's Music
-                <hr>
+            <div class="topic">
+                <p class="topic-title">Today's Music</p>
+                <hr class="topic_line">
             </div>
 
-            <div class="box box1 row-1">
+            <div class="box  row-1">
                 <img class="cover_img" src="적재_타투.jpg">
                 <div class="title">타투 (Tattoo) - 적재</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">타투 (Tattoo)</p>
+                        <p class="content-singer">적재</p>
+                        <p class="content-detail">작사: 적재, 이주형 <br>
+                            작곡: 적재, 이주형, GDLO(MonoTree) <br>
+                            편곡: 적재, 이주형, GDLO(MonoTree)</p>
+                    </div>
+                </div>
             </div>
-            <div class="box box2 row-1">
+            <div class="box  row-1">
                 <img class="cover_img" src="아이유_라일락.jpg">
                 <div class="title">라일락 - 아이유</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">라일락</p>
+                        <p class="content-singer">아이유(IU)</p>
+                        <p class="content-detail">작사: 아이유(IU) <br>
+                            작곡: 임수호, Dr.JO, 웅킴, N!ko <br>
+                            편곡: 임수호, 웅킴, N!ko</p>
+                    </div>
+                </div>
             </div>
-            <div class="box box3 row-1">
+            <div class="box  row-1">
                 <img class="cover_img" src="나무_카더가든).jpg">
                 <div class="title">나무 - 카더가든</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">나무</p>
+                        <p class="content-singer">카더가든</p>
+                        <p class="content-detail">작사: 카더가든, 유라<br>
+                            작곡: 카더가든, 623<br>
+                            편곡: 카더가든, 623
+                        </p>
+                    </div>
+                </div>
             </div>
 
 
-            <div class="topic2">
-                이런 음악은 어떠세요?
-                <hr>
+            <div class="topic">
+                <p class="topic-title">이런 음악은 어떠세요?</p>
+                <hr class="topic_line">
             </div>
-            <div class="box box1 row-2">
+            <div class="box  row-2">
                 <img class="cover_img" src="예빛_날위해웃어줘.jpg">
                 <div class="title">날 위해 웃어줘 - 예빛</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">날 위해 웃어줘</p>
+                        <p class="content-singer">예빛</p>
+                        <p class="content-detail">작사: 예빛<br>
+                            작곡: 예빛<br>
+                            편곡: 예빛, 김지원
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="box box2 row-2">
+            <div class="box  row-2">
                 <img class="cover_img" src="야생화_박효신.jpg">
                 <div class="title">야생화 - 박효신</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">야생화</p>
+                        <p class="content-singer">박효신</p>
+                        <p class="content-detail">작사: 박효신, 김지향<br>
+                            작곡: 박효신, 정재일<br>
+                            편곡: 정재일
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="box box3 row-2">
+            <div class="box  row-2">
                 <img class="cover_img" src="10cm_스토커.jpg">
                 <div class="title">스토커 - 10CM</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">스토커</p>
+                        <p class="content-singer">10CM</p>
+                        <p class="content-detail">작사: 10CM<br>
+                            작곡: 10CM<br>
+                            편곡: 10CM, Fine Five
+                        </p>
+                    </div>
+                </div>
             </div>
 
+            <div class="topic">
+                <p class="topic-title">역주행 신화!</p>
+                <hr class="topic_line">
+            </div>
+            <div class="box  row-3">
+                <img class="cover_img" src="타임리스.jpg">
+                <div class="title">Timeless - SG워너비</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">Timeless</p>
+                        <p class="content-singer">SG워너비</p>
+                        <p class="content-detail">작사: 강은경<br>
+                            작곡: 박근태<br>
+                            편곡: 조영수
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box  row-3">
+                <img class="cover_img" src="브걸_롤린.jpg">
+                <div class="title">롤린 (Rollin') - 브레이브걸스</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">롤린 (Rollin')</p>
+                        <p class="content-singer">브레이브걸스</p>
+                        <p class="content-detail">작사: 용감한 형제, 차쿤 <br>
+                            작곡: 용감한 형제, 투챔프, 차쿤 <br>
+                            편곡: 투챔프
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box  row-3">
+                <img class="cover_img" src="위아래.jpg">
+                <div class="title">위아래 - EXID</div>
+                <div>
+                    <div class="hide">
+                        <p class="content-title">위아래</p>
+                        <p class="content-singer">EXID</p>
+                        <p class="content-detail">작사: 신사동 호랭이, 범이, 낭이, LE(EXID) <br>
+                            작곡: 신사동 호랭이, 범이, 낭이, LE(EXID) <br>
+                            편곡: 신사동 호랭이, 범이, 낭이
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
 
+
+
+            <div class="blank"></div>
+
+            <footer>
+                <img src="logo2.png" style="width: 10vw; margin-right: 2vw;">
+                <span>
+                    경북대학교 IT대학 컴퓨터학부 - 2018110391 권진솔 <br>
+                    고급 웹 프로그래밍 - 중간 과제
+                </span>
+            </footer>
         </div>
-
+        
 
     </div>
+   
     <script>
         var move_x = 0
         var move_y = 0
         var state = 0
+        var temp = 0
         $('.box').click(function () {
             if (state == 0) {
                 y = $(this).offset().top
                 x = $(this).offset().left
                 move_y = ($(window).height() / 2 - $(this).height()) - y
                 move_x = ($(window).width() / 2 - $(this).width()) - x
+                console.log("y:" + y + "my:" + move_y);
                 $(this).animate({
                     top: '+=' + move_y,
                     left: '+=' + move_x,
-                    width: '40%',
+                    width: '30%',
                     //    width: $(this).width() *2,
                     // height: '200%'
                 })
                 $(this).children().toggleClass('bigger_title')
-                $(this).css('background-color', 'red')
+                // $(this).css('background-color', 'red')
                 $(this).parent().toggleClass('blur-bg')
                 $(this).siblings().toggleClass('none')
                 $(this).attr("style", "z-index : 1")
                 $(this).siblings().attr("style", "z-index:-1")
                 $(this).toggleClass('focus')
+                $(this).siblings('.background').attr("style","z-index:-2")
                 state = 1
+            }
+            else if (state == 1) {
+                $(this).children().children('.hide').addClass('test')
+                temp = -1 * $(window).width() * 0.2
+                $(this).animate({
+                    left: '+=' + temp
+                })
+                state++
             }
         })
 
@@ -205,18 +507,23 @@
             var container = $(".focus");
             if (container.has(e.target).length === 0) {
                 $(container).animate({
-                    width: '20%',
                     // height: '50%',
                     top: '-=' + move_y,
-                    left: '-=' + move_x
+                    left: '-=' + (move_x + temp),
+                    width: '15%'
                 })
                 $(container).children().toggleClass('bigger_title')
                 $(container).parent().toggleClass('blur-bg')
                 $(container).siblings().toggleClass('none')
                 $(container).siblings().attr("style", "z-index:0")
                 $(container).toggleClass('focus')
+                $(container).children().children('.hide').removeClass
+                    ('test')
+                $(container).siblings('.background').attr("style","z-index:-1")
                 state = 0;
+                temp = 0;
             }
+
         });
 
 
