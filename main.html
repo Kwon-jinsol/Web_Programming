@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중간 과제</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800&display=swap" rel="stylesheet">
+    <script src="jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0%;
+        }
+
+        /* 1행 */
+        .row-1 {
+            top: 100px;
+        }
+
+        /* 2행 */
+        .row-2 {
+            top: 350px;
+        }
+
+        /* 열 정렬 */
+        .box1 {
+            left: 100px;
+        }
+
+        .box2 {
+            left: 350px;
+        }
+
+        .box3 {
+            left: 600px;
+        }
+
+
+
+
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            background-color: aqua;
+            filter: drop-shadow(0 0 50px gray);
+            z-index: 0;
+        }
+
+        .back {
+            width: 100%;
+            height: 100%;
+            /* display: grid;
+            grid-template-columns: 200px 200px 200px;
+            grid-template-rows: 200px 200px;
+            grid-gap: 20px; */
+        }
+
+
+        .blur-bg {
+            transition: all 0.05s;
+            -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px);
+            /* width: 100%;
+            height: 100%; */
+            z-index: 2;
+        }
+
+        .wrapper {
+            width: 100vw;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1516919549054-e08258825f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')no-repeat center center;
+            background-size: cover;
+            overflow-y: none;
+        }
+
+        .none {
+            transition: all 0.05s;
+            /* display: none; */
+            filter: blur(50px);
+        }
+
+        .top {
+            width: 100%;
+            background-color: red;
+            margin: 0px;
+        }
+
+        h1 {
+            margin: 0px;
+        }
+
+        .cover_img {
+            width: 100%;
+            border-radius: 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 18px;
+            overflow: hidden;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .bigger_title {
+            font-size: 34px;
+            transition: all 0.8s;
+            overflow: visible;
+
+
+            /* transform: translate(-50%, -50%) */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <div class="back">
+            <div class="top">
+                <h1>책 소개</h1>
+            </div>
+
+            <div class="box box1 row-1">
+                <img class="cover_img" src="적재_타투.jpg">
+                <div class="title">타투 (Tattoo) - 적재</div>
+            </div>
+            <div class="box box2 row-1">
+                <img class="cover_img" src="아이유_라일락.jpg">
+                <div class="title">라일락 - 아이유</div>
+            </div>
+            <div class="box box3 row-1">
+                <img class="cover_img" src="LOVE DAY (2021)_양요섭, 정은지.jpg">
+                <div class="title">LOVE DAY (2021) - 양요섭, 정은지</div>
+            </div>
+
+
+            <div class="box box1 row-2"></div>
+            <div class="box box2 row-2"></div>
+            <div class="box box3 row-2"></div>
+
+
+        </div>
+
+
+    </div>
+    <script>
+        var y = 0
+        var x = 0
+        $('.box').click(function () {
+            if ($(this).width() <= 200) {
+                y = $(this).position().top
+                x = $(this).position().left
+                $(this).animate({
+                    top: ($(window).height() / 2 - 200),
+                    left: $(window).width() / 2 - 200,
+                    width: '400px',
+                    height: '400px'
+                })
+                $(this).children().toggleClass('bigger_title')
+                $(this).css('background-color', 'red')
+                $(this).parent().toggleClass('blur-bg')
+                $(this).siblings().toggleClass('none')
+                $(this).attr("style", "z-index : 1")
+                $(this).siblings().attr("style", "z-index:-1")
+
+            }
+            else {
+                $(this).animate({
+                    top: y,
+                    left: x,
+                    'width': '200px',
+                    'height': '200px'
+                })
+                $(this).children().toggleClass('bigger_title')
+                $(this).css('background-color', 'navy')
+                $(this).parent().toggleClass('blur-bg')
+                $(this).siblings().toggleClass('none')
+                $(this).siblings().attr("style", "z-index:0")
+            }
+        })
+
+        // $(document).click(function () {
+        //     $('div').animate({
+        //         'width': '100px',
+        //         'height': '100px'
+        //     })
+        // })
+
+    </script>
+</body>
+
+</html>
