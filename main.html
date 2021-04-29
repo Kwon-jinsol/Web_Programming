@@ -14,49 +14,31 @@
             margin: 0%;
         }
 
-        /* 1행 */
-        .row-1 {
-            top: 100px;
-        }
-
-        /* 2행 */
-        .row-2 {
-            top: 350px;
-        }
-
-        /* 열 정렬 */
-        .box1 {
-            left: 100px;
-        }
-
-        .box2 {
-            left: 350px;
-        }
-
-        .box3 {
-            left: 600px;
-        }
-
-
 
 
         .box {
-            position: absolute;
-            width: 200px;
-            height: 200px;
+            left: 15%;
+            margin-top: 3%;
+            margin-right: 5%;
+            position: relative;
+            display: inline-block;
+            width: 20%;
+            /* height: 20%; */
             border-radius: 20px;
-            background-color: aqua;
-            filter: drop-shadow(0 0 50px gray);
+            /* background-color: aqua; */
+            filter: drop-shadow(0 0 20px gray);
             z-index: 0;
+        }
+
+        .box:hover>.title {
+            transform: scale(1.1);
+            transition: all 0.5s;
         }
 
         .back {
             width: 100%;
             height: 100%;
-            /* display: grid;
-            grid-template-columns: 200px 200px 200px;
-            grid-template-rows: 200px 200px;
-            grid-gap: 20px; */
+            /* overflow: hidden; */
         }
 
 
@@ -64,17 +46,17 @@
             transition: all 0.05s;
             -webkit-backdrop-filter: blur(50px);
             backdrop-filter: blur(50px);
-            /* width: 100%;
-            height: 100%; */
+            overflow: hidden;
             z-index: 2;
         }
 
         .wrapper {
             width: 100vw;
             height: 100vh;
-            background: url('https://images.unsplash.com/photo-1516919549054-e08258825f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')no-repeat center center;
+            /* background: url('https://images.unsplash.com/photo-1516919549054-e08258825f80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')no-repeat center center; */
             background-size: cover;
-            overflow-y: none;
+            /* overflow-y: none; */
+            overflow-x: hidden;
         }
 
         .none {
@@ -85,7 +67,7 @@
 
         .top {
             width: 100%;
-            background-color: red;
+            background-color: greenyellow;
             margin: 0px;
         }
 
@@ -95,10 +77,12 @@
 
         .cover_img {
             width: 100%;
+            height: 100%;
             border-radius: 20px;
         }
 
         .title {
+            position: relative;
             text-align: center;
             font-size: 18px;
             overflow: hidden;
@@ -111,9 +95,31 @@
             font-size: 34px;
             transition: all 0.8s;
             overflow: visible;
-
-
             /* transform: translate(-50%, -50%) */
+        }
+
+        .topic1 {
+            position: relative;
+            margin-top: 3%;
+            /* top: 5%; */
+            margin-left: 14%;
+            margin-right: 14%;
+            /* left: 14%; */
+            width: 72%;
+        }
+
+        .topic2 {
+            position: relative;
+            /* top: 55%; */
+            margin-top: 5%;
+            margin-left: 14%;
+            margin-right: 14%;
+            /* left: 14%; */
+            width: 72%;
+        }
+
+        .focus {
+            color: black;
         }
     </style>
 </head>
@@ -123,7 +129,12 @@
 
         <div class="back">
             <div class="top">
-                <h1>책 소개</h1>
+                <h1>Melon</h1>
+            </div>
+
+            <div class="topic1">
+                Today's Music
+                <hr>
             </div>
 
             <div class="box box1 row-1">
@@ -135,14 +146,27 @@
                 <div class="title">라일락 - 아이유</div>
             </div>
             <div class="box box3 row-1">
-                <img class="cover_img" src="LOVE DAY (2021)_양요섭, 정은지.jpg">
-                <div class="title">LOVE DAY (2021) - 양요섭, 정은지</div>
+                <img class="cover_img" src="나무_카더가든).jpg">
+                <div class="title">나무 - 카더가든</div>
             </div>
 
 
-            <div class="box box1 row-2"></div>
-            <div class="box box2 row-2"></div>
-            <div class="box box3 row-2"></div>
+            <div class="topic2">
+                이런 음악은 어떠세요?
+                <hr>
+            </div>
+            <div class="box box1 row-2">
+                <img class="cover_img" src="예빛_날위해웃어줘.jpg">
+                <div class="title">날 위해 웃어줘 - 예빛</div>
+            </div>
+            <div class="box box2 row-2">
+                <img class="cover_img" src="야생화_박효신.jpg">
+                <div class="title">야생화 - 박효신</div>
+            </div>
+            <div class="box box3 row-2">
+                <img class="cover_img" src="10cm_스토커.jpg">
+                <div class="title">스토커 - 10CM</div>
+            </div>
 
 
         </div>
@@ -150,17 +174,21 @@
 
     </div>
     <script>
-        var y = 0
-        var x = 0
+        var move_x = 0
+        var move_y = 0
+        var state = 0
         $('.box').click(function () {
-            if ($(this).width() <= 200) {
-                y = $(this).position().top
-                x = $(this).position().left
+            if (state == 0) {
+                y = $(this).offset().top
+                x = $(this).offset().left
+                move_y = ($(window).height() / 2 - $(this).height()) - y
+                move_x = ($(window).width() / 2 - $(this).width()) - x
                 $(this).animate({
-                    top: ($(window).height() / 2 - 200),
-                    left: $(window).width() / 2 - 200,
-                    width: '400px',
-                    height: '400px'
+                    top: '+=' + move_y,
+                    left: '+=' + move_x,
+                    width: '40%',
+                    //    width: $(this).width() *2,
+                    // height: '200%'
                 })
                 $(this).children().toggleClass('bigger_title')
                 $(this).css('background-color', 'red')
@@ -168,22 +196,68 @@
                 $(this).siblings().toggleClass('none')
                 $(this).attr("style", "z-index : 1")
                 $(this).siblings().attr("style", "z-index:-1")
-
-            }
-            else {
-                $(this).animate({
-                    top: y,
-                    left: x,
-                    'width': '200px',
-                    'height': '200px'
-                })
-                $(this).children().toggleClass('bigger_title')
-                $(this).css('background-color', 'navy')
-                $(this).parent().toggleClass('blur-bg')
-                $(this).siblings().toggleClass('none')
-                $(this).siblings().attr("style", "z-index:0")
+                $(this).toggleClass('focus')
+                state = 1
             }
         })
+
+        $('.back').mouseup(function (e) {
+            var container = $(".focus");
+            if (container.has(e.target).length === 0) {
+                $(container).animate({
+                    width: '20%',
+                    // height: '50%',
+                    top: '-=' + move_y,
+                    left: '-=' + move_x
+                })
+                $(container).children().toggleClass('bigger_title')
+                $(container).parent().toggleClass('blur-bg')
+                $(container).siblings().toggleClass('none')
+                $(container).siblings().attr("style", "z-index:0")
+                $(container).toggleClass('focus')
+                state = 0;
+            }
+        });
+
+
+
+        // 박스 클릭 --> 큰 화면
+        // var y = 0
+        // var x = 0
+        // $('.box').click(function () {
+        //     if ($(this).width() == '20%') {
+        //         y = $(this).offset().top
+        //         x = $(this).offset().left
+        //         // $(this).attr("style", "position: absolute")
+        //         $(this).animate({
+        //             // top: ($(window).height() / 2 - 200),
+        //             // left: ($(window).width() / 2 - 200),
+        //             width: '40%',
+        //             height: '40%'
+        //         })
+        //         $(this).children().toggleClass('bigger_title')
+        //         $(this).css('background-color', 'red')
+        //         $(this).parent().toggleClass('blur-bg')
+        //         $(this).siblings().toggleClass('none')
+        //         $(this).attr("style", "z-index : 1")
+        //         $(this).siblings().attr("style", "z-index:-1")
+
+        //     }
+        //     else {
+
+        //         $(this).animate({
+        //             top: y,
+        //             left: x,
+        //             'width': '20%',
+        //             'height': '20%'
+        //         })
+        //         $(this).children().toggleClass('bigger_title')
+        //         $(this).css('background-color', 'navy')
+        //         $(this).parent().toggleClass('blur-bg')
+        //         $(this).siblings().toggleClass('none')
+        //         $(this).siblings().attr("style", "z-index:0")
+        //     }
+        // })
 
         // $(document).click(function () {
         //     $('div').animate({
