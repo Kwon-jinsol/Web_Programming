@@ -226,7 +226,8 @@
             margin-bottom: 0;
             font-family: 'DX';
             font-size: 2vw;
-
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .background {
@@ -447,7 +448,6 @@
                 x = $(this).offset().left
                 move_y = ($(window).height() / 2 - $(this).height()) - y
                 move_x = ($(window).width() / 2 - $(this).width()) - x
-                console.log("y:" + y + "my:" + move_y);
                 $(this).animate({
                     top: '+=' + move_y,
                     left: '+=' + move_x,
